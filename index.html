@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dicee</title>
+
+    <!-- -- External CSS --  -->
+    <link rel = "stylesheet" href = "styles.css">
+
+    <!-- -- BootStrap CSS -- -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- -- Favicon --  -->
+
+<link rel ="icon" href = "dice1.png">
+
+</head>
+<body onload = "fun();">
+    
+    <!-- -- Winner Selection Area --  -->
+
+    <section id = "section-1" class = "area">
+        <div>
+            <h1 id = "player-name">Player 1 wins.</h1>
+        </div>
+    </section>
+
+    <!-- -- Image Dice Area -- -->
+
+    <section id = "section-2" class = "area">
+        <div class = "row">
+            <div class = "col-lg-6">
+                <h3>Player 1</h3>
+                <img src = "dice1.png" id = "img1" alt = "dice-1">
+            </div>
+            <div class = "col-lg-6">
+                <h3>Player 2</h3>
+                <img src = "dice3.png" id = "img2" alt = "dice-3">
+            </div>
+        </div>
+    </section>
+
+
+    <!-- -- External javaScript --  -->
+    <script type = "text/javascript">
+        function fun(){
+    var num1 = Math.random();
+var num2 = Math.random();
+num1 = Math.floor((num1 * 6) + 1);
+num2 = Math.floor((num2 * 6) + 1);
+var link1 = "dice"+num1+".png";
+var link2 = "dice"+num2+".png";
+document.querySelector("#img1").setAttribute("src", link1);
+document.querySelector("#img2").setAttribute("src", link2);
+if(num1>num2){
+    document.getElementById("player-name").innerHTML = "Player 1 Wins.";
+}
+else if(num1 === num2){
+    document.getElementById("player-name").innerHTML = "It's a Draw.";
+}
+else{
+    document.getElementById("player-name").innerHTML = "Player 2 Wins";
+}
+}
+    </script>
+
+
+</body>
+</html>
